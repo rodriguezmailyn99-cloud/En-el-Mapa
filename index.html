@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>En el Mapa · Aseo y Librería a tu puerta</title>
+  <meta name="description" content="En el Mapa: productos de aseo y librería para hogar, colegio y oficina. Kits listos, lista escolar en 1 clic y despacho con seguimiento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="topbar">🚚 Despacho gratis sobre $40.000 · 💬 Atención por WhatsApp · 🧾 Factura y boleta</div>
+
+  <header class="header">
+    <a class="logo" href="#">
+      <span class="pin">📍</span>
+      <span>En el <b>Mapa</b></span>
+    </a>
+    <form class="search" onsubmit="event.preventDefault()">
+      <input id="search" type="search" placeholder="Busca: cuadernos, cloro, toner, lápices…" aria-label="Buscar productos">
+    </form>
+    <nav class="nav">
+      <a href="#kits">Kits</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#empresas">Empresas</a>
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito">🛒 <span id="cartCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="badge">Nuevo en Chile ✨</span>
+        <h1>Tu casa, tu colegio y tu oficina<br><span class="hl">siempre en el mapa</span></h1>
+        <p>Aseo y librería con precios claros, kits armados por expertos y despacho que puedes seguir en tiempo real. Sin filas, sin vueltas.</p>
+        <div class="hero-cta">
+          <a href="#kits" class="btn btn-primary">Ver kits listos</a>
+          <a href="#lista" class="btn btn-ghost">📸 Sube tu lista escolar</a>
+        </div>
+        <ul class="trust">
+          <li>✅ Pago seguro</li>
+          <li>⏱️ Entrega 24–72 h</li>
+          <li>♻️ Opción eco</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="map">
+          <div class="road r1"></div><div class="road r2"></div><div class="road r3"></div>
+          <span class="mpin p1">📍</span><span class="mpin p2">🏠</span><span class="mpin p3">🏫</span><span class="mpin p4">🏢</span>
+          <div class="truck">🚚</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="cats" aria-label="Categorías">
+      <button class="cat active" data-cat="todo">🌈 Todo</button>
+      <button class="cat" data-cat="aseo">🧼 Aseo</button>
+      <button class="cat" data-cat="libreria">✏️ Librería</button>
+      <button class="cat" data-cat="oficina">🖨️ Oficina</button>
+      <button class="cat" data-cat="eco">🌱 Eco</button>
+    </section>
+
+    <!-- KITS -->
+    <section id="kits" class="section">
+      <h2>Kits listos <small>Ahorra tiempo y hasta 15%</small></h2>
+      <div class="kits" id="kits-grid"></div>
+    </section>
+
+    <!-- LISTA ESCOLAR -->
+    <section id="lista" class="lista">
+      <div>
+        <h2>📸 Tu lista escolar en 1 foto</h2>
+        <p>Sube la foto o PDF de la lista del colegio. Te devolvemos el carrito armado con 3 opciones de precio: <b>Económica</b>, <b>Equilibrada</b> y <b>Premium</b>.</p>
+      </div>
+      <form class="lista-form" id="listaForm">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="tel" name="fono" placeholder="WhatsApp (+56 9…)" required>
+        <label class="file">Adjuntar lista <input type="file" accept="image/*,.pdf"></label>
+        <button class="btn btn-primary" type="submit">Quiero mi cotización</button>
+      </form>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalogo" class="section">
+      <h2>Catálogo <small id="catLabel">Todos los productos</small></h2>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- EMPRESAS -->
+    <section id="empresas" class="empresas">
+      <h2>🏢 En el Mapa para Empresas</h2>
+      <div class="features">
+        <div class="feature"><span>🔁</span><h3>Compra recurrente</h3><p>Programa tu pedido mensual y olvídate. Te avisamos antes de cada envío.</p></div>
+        <div class="feature"><span>🧾</span><h3>Factura y crédito</h3><p>Factura electrónica, órdenes de compra y pago a 30 días para clientes frecuentes.</p></div>
+        <div class="feature"><span>📊</span><h3>Control de gasto</h3><p>Presupuesto por área y reporte mensual de consumo. Lo que nadie más te da.</p></div>
+        <div class="feature"><span>👩‍💼</span><h3>Ejecutiva dedicada</h3><p>Una persona real que conoce tu cuenta, por WhatsApp.</p></div>
+      </div>
+      <a class="btn btn-primary" id="b2bBtn" href="#">Cotizar para mi empresa</a>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how">
+      <h2>¿Cómo funciona?</h2>
+      <ol class="steps">
+        <li><b>1</b>Eliges productos o un kit</li>
+        <li><b>2</b>Pagas seguro (tarjeta, transferencia)</li>
+        <li><b>3</b>Preparamos tu pedido</li>
+        <li><b>4</b>Lo sigues en el mapa 📍 hasta tu puerta</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="logo"><span class="pin">📍</span> En el <b>Mapa</b></div>
+    <p>Aseo · Librería · Oficina — Chile</p>
+    <p class="small">© 2026 En el Mapa. Precios con IVA incluido. Prototipo de diseño.</p>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Tu carrito</h3>
+      <button id="closeCart" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="freebar"><div class="freebar-fill" id="freeFill"></div></div>
+    <p class="freemsg" id="freeMsg"></p>
+    <ul class="cart-items" id="cartItems"></ul>
+    <div class="drawer-foot">
+      <div class="total">Total <span id="cartTotal">$0</span></div>
+      <button class="btn btn-primary full" id="checkout">Finalizar por WhatsApp 💬</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
