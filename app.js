@@ -7,11 +7,11 @@ const CONFIG = {
 };
 
 const ZONES = [
-  { name: "Mismo día", detail: "Pedido antes de las 12:00", color: "#1f8a5b",
+  { name: "Mismo día", detail: "Pedido antes de las 12:00", color: "var(--green)",
     comunas: ["Santiago", "Providencia", "Ñuñoa", "Las Condes", "Vitacura", "La Reina", "Macul", "San Miguel"] },
-  { name: "Día siguiente", detail: "Pedido antes de las 18:00", color: "#ffc23d",
+  { name: "Día siguiente", detail: "Pedido antes de las 18:00", color: "var(--yellow)",
     comunas: ["Maipú", "La Florida", "Puente Alto", "Peñalolén", "Estación Central", "Quinta Normal", "Recoleta", "Independencia", "Huechuraba", "Lo Barnechea", "La Cisterna", "San Joaquín", "Cerrillos", "Pudahuel", "Quilicura", "Renca", "Conchalí", "Lo Prado", "Cerro Navia", "La Granja", "San Ramón", "El Bosque", "Lo Espejo", "Pedro Aguirre Cerda", "La Pintana", "San Bernardo"] },
-  { name: "48 a 72 horas", detail: "Resto de Santiago y regiones", color: "#e5532d", comunas: [] },
+  { name: "48 a 72 horas", detail: "Resto de Santiago y regiones", color: "var(--orange)", comunas: [] },
 ];
 
 const CATEGORIES = [
@@ -24,7 +24,7 @@ const CATEGORIES = [
   { id: "eco", name: "Línea eco", eco: true },
 ];
 
-const BG = { "aseo-hogar": "#dcf0eb", "aseo-industrial": "#cfe9e2", papeleria: "#e4e0f7", escolar: "#ffe3a3", papeles: "#ffd8cb", higiene: "#e4e0f7", eco: "#dcf0eb" };
+const BG = { "aseo-hogar": "var(--mint)", "aseo-industrial": "var(--mint-2)", papeleria: "var(--lilac)", escolar: "var(--butter)", papeles: "var(--peach)", higiene: "var(--lilac)", eco: "var(--mint)" };
 
 // modes: h = hogar, e = empresa
 const PRODUCTS = [
@@ -53,23 +53,23 @@ const PRODUCTS = [
 
 const KITS = {
   hogar: [
-    { id: 101, name: "Kit Vuelta a Clases", tag: "Más pedido", bg: "#ffe3a3", img: "🎒", price: 24990, old: 28900,
+    { id: 101, name: "Kit Vuelta a Clases", tag: "Más pedido", bg: "var(--butter)", img: "🎒", price: 24990, old: 28900,
       desc: "La lista completa de tu colegio, armada por nivel y lista para forrar.", items: ["5 cuadernos", "Lápices de colores", "Pegamento, tijeras y más"] },
-    { id: 102, name: "Kit Aseo Depto / Airbnb", tag: "Recambio rápido", bg: "#dcf0eb", img: "🛏️", price: 19990, old: 23400,
+    { id: 102, name: "Kit Aseo Depto / Airbnb", tag: "Recambio rápido", bg: "var(--mint)", img: "🛏️", price: 19990, old: 23400,
       desc: "Lo necesario para dejar un depto impecable entre huéspedes.", items: ["Papel y toallas", "Cloro y multiuso", "Bolsas de basura"] },
-    { id: 103, name: "Kit Aseo Mensual Familia", tag: "Con reposición", bg: "#ffd8cb", img: "🏠", price: 34990, old: 40500,
+    { id: 103, name: "Kit Aseo Mensual Familia", tag: "Con reposición", bg: "var(--peach)", img: "🏠", price: 34990, old: 40500,
       desc: "Detergente, cloro, papel, lavalozas y más para todo el mes.", items: ["32 rollos de papel", "Detergente 3 L", "Lavalozas y cloro"] },
-    { id: 104, name: "Kit Escritorio en Casa", tag: "Teletrabajo", bg: "#e4e0f7", img: "💻", price: 16990, old: 19800,
+    { id: 104, name: "Kit Escritorio en Casa", tag: "Teletrabajo", bg: "var(--lilac)", img: "💻", price: 16990, old: 19800,
       desc: "Resma, cuadernos, lápices, archivadores y organizadores.", items: ["1 resma carta", "Notas adhesivas", "Lápices y cuaderno"] },
   ],
   empresa: [
-    { id: 201, name: "Kit Oficina 10 Personas", tag: "Mensual", bg: "#e4e0f7", img: "🏢", price: 69990, old: 79900,
+    { id: 201, name: "Kit Oficina 10 Personas", tag: "Mensual", bg: "var(--lilac)", img: "🏢", price: 69990, old: 79900,
       desc: "Papelería, insumos de escritorio y cafetería para un equipo pequeño.", items: ["5 resmas", "Lápices x50", "Vasos y toallas"] },
-    { id: 202, name: "Kit Baños y Cafetería", tag: "Con reposición", bg: "#dcf0eb", img: "☕", price: 49990, old: 56800,
+    { id: 202, name: "Kit Baños y Cafetería", tag: "Con reposición", bg: "var(--mint)", img: "☕", price: 49990, old: 56800,
       desc: "Papel higiénico, toallas, jabón, vasos y aseo para áreas comunes.", items: ["Papel jumbo x6", "Jabón 5 L", "Vasos x200"] },
-    { id: 203, name: "Kit Clínica / Consulta", tag: "Salud", bg: "#ffd8cb", img: "🩺", price: 54990, old: 62300,
+    { id: 203, name: "Kit Clínica / Consulta", tag: "Salud", bg: "var(--peach)", img: "🩺", price: 54990, old: 62300,
       desc: "Desechables, desinfección de superficies y papelería de recepción.", items: ["Desinfectante 5 L", "Alcohol gel", "Papelería recepción"] },
-    { id: 204, name: "Kit Colegio / Jardín", tag: "Compras públicas", bg: "#ffe3a3", img: "🏫", price: 89990, old: 101500,
+    { id: 204, name: "Kit Colegio / Jardín", tag: "Compras públicas", bg: "var(--butter)", img: "🏫", price: 89990, old: 101500,
       desc: "Material didáctico, papelería y aseo por sala o por semestre.", items: ["Material por sala", "Aseo semestral", "Orden de compra OK"] },
   ],
 };
@@ -352,6 +352,33 @@ $("#b2bBtn").href = wsp("Hola, quiero crear una cuenta empresa en En el Mapa �
 $("#comunaForm").addEventListener("submit", checkComuna);
 ["#topWsp", "#footWsp"].forEach((s) => $(s).setAttribute("href", wsp("Hola En el Mapa 📍")));
 $("#topWsp").target = $("#footWsp").target = "_blank";
+
+/* ---------- paletas (para elegir colores) ---------- */
+const PALETTES = [
+  { id: "petroleo", name: "Petróleo y naranja", note: "La actual: cálida y confiable", c: ["#0f3b43", "#e5532d", "#ffc23d", "#dcf0eb"] },
+  { id: "oceano", name: "Océano y coral", note: "Fresca, limpia, muy 'aseo'", c: ["#12355b", "#ff6f59", "#ffd166", "#e1edf9"] },
+  { id: "berry", name: "Berry y lima", note: "Atrevida y juvenil, destaca en redes", c: ["#3b1f4a", "#ff4f87", "#d4f45a", "#efe6f7"] },
+  { id: "bosque", name: "Bosque y durazno", note: "Natural, ideal si apuestas por lo eco", c: ["#1e3d2f", "#e8743b", "#f4c04e", "#e3efe5"] },
+  { id: "electrico", name: "Azul eléctrico y amarillo", note: "Energética, estilo retail moderno", c: ["#111a3a", "#3a5bff", "#ffd400", "#eef1ff"] },
+];
+function setPalette(id) {
+  if (id === "petroleo") delete document.documentElement.dataset.palette;
+  else document.documentElement.dataset.palette = id;
+  store.set("eem-palette", id);
+  document.querySelectorAll(".pal").forEach((b) => b.setAttribute("aria-pressed", b.dataset.pal === id));
+}
+$("#paletteList").innerHTML = PALETTES.map((p) => `
+  <button class="pal" data-pal="${p.id}" aria-pressed="false">
+    <span class="chips4">${p.c.map((x) => `<i style="background:${x}"></i>`).join("")}</span>
+    <span>${p.name}<small>${p.note}</small></span>
+  </button>`).join("");
+$("#paletteList").addEventListener("click", (e) => { const b = e.target.closest(".pal"); if (b) setPalette(b.dataset.pal); });
+$("#paletteFab").addEventListener("click", () => {
+  const open = $("#palettePanel").hidden;
+  $("#palettePanel").hidden = !open;
+  $("#paletteFab").setAttribute("aria-expanded", open);
+});
+setPalette(store.get("eem-palette", "petroleo"));
 
 /* ---------- inicio ---------- */
 $("#comunasList").innerHTML = ZONES.flatMap((z) => z.comunas).map((c) => `<option value="${c}">`).join("");

@@ -71,13 +71,13 @@
       </div>
       <div class="hero-map" aria-hidden="true">
         <svg class="map-svg" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
-          <g stroke="#bfe0d8" stroke-width="2">
+          <g class="map-grid" stroke-width="2">
             <path d="M0 64H400M0 128H400M0 192H400M0 256H400M72 0V320M152 0V320M232 0V320M312 0V320"/>
           </g>
-          <rect x="82" y="72" width="60" height="44" rx="6" fill="#cfe9e2"/>
-          <rect x="242" y="136" width="60" height="44" rx="6" fill="#cfe9e2"/>
-          <rect x="162" y="200" width="60" height="44" rx="6" fill="#ffe3a3"/>
-          <path class="route" d="M90 250 C140 210 160 180 190 160 S 260 110 320 66" fill="none" stroke="#e5532d" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+          <rect x="82" y="72" width="60" height="44" rx="6" class="map-block"/>
+          <rect x="242" y="136" width="60" height="44" rx="6" class="map-block"/>
+          <rect x="162" y="200" width="60" height="44" rx="6" class="map-block alt"/>
+          <path class="route" d="M90 250 C140 210 160 180 190 160 S 260 110 320 66" fill="none" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
         </svg>
         <span class="map-pin"><svg><use href="#i-pin"/></svg></span>
         <span class="map-box"><svg><use href="#i-box"/></svg></span>
@@ -209,6 +209,16 @@
   </aside>
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status"></div>
+
+  <!-- Selector de paletas (solo para elegir colores; se quita al lanzar) -->
+  <div class="palette-panel" id="palettePanel" hidden>
+    <b>Elige una paleta</b>
+    <small>Se aplica a toda la página al instante.</small>
+    <div id="paletteList" style="display:grid;gap:8px"></div>
+  </div>
+  <button class="palette-fab" id="paletteFab" aria-expanded="false" aria-controls="palettePanel">
+    <span class="sw"><i style="background:var(--orange)"></i><i style="background:var(--yellow)"></i><i style="background:var(--mint)"></i></span> Colores
+  </button>
 
   <script src="app.js"></script>
 </body>
