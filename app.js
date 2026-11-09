@@ -230,6 +230,7 @@ function renderCart() {
   }
   rows += `<div class="grand"><span>Total</span><span>${clp(gross)}</span></div>`;
   $("#totals").innerHTML = rows;
+  $("#checkout").href = entries.length ? wsp(orderText()) : "#";
 }
 
 /* ---------- acciones ---------- */
@@ -268,7 +269,7 @@ function printQuote() {
   }).join("");
   const today = new Date().toLocaleDateString("es-CL");
   const w = window.open("", "_blank");
-  if (!w) return toast("Permite las ventanas emergentes para descargar");
+  if (!w) return toast("Tu navegador bloqueó la cotización. Permite ventanas emergentes.");
   w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Cotización En el Mapa</title>
     <style>body{font-family:Inter,Arial,sans-serif;color:#0f3b43;padding:40px;max-width:800px;margin:auto}
     h1{margin:0}table{width:100%;border-collapse:collapse;margin:24px 0}th,td{text-align:left;padding:8px;border-bottom:1px solid #e9ddd1}
@@ -319,6 +320,7 @@ document.addEventListener("click", (e) => {
     document.querySelectorAll("#freq button").forEach((b) => b.classList.toggle("on", b === t));
     const d = new Date(Date.now() + freqDays * 864e5).toLocaleDateString("es-CL", { day: "numeric", month: "long" });
     $("#nextDelivery").textContent = `Próxima entrega: en ${freqDays} días (${d})`;
+    updateRepoLink();
   }
 });
 
@@ -338,16 +340,15 @@ $("#cartBtn").addEventListener("click", () => openCart(true));
 $("#closeCart").addEventListener("click", () => openCart(false));
 $("#overlay").addEventListener("click", () => openCart(false));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") openCart(false); });
-$("#checkout").addEventListener("click", () => {
-  if (!Object.keys(cart).length) return toast("Tu carro está vacío");
-  window.open(wsp(orderText()), "_blank", "noopener");
+$("#checkout").addEventListener("click", (e) => {
+  if (!Object.keys(cart).length) { e.preventDefault(); toast("Tu carro está vacío"); }
 });
 $("#quoteBtn").addEventListener("click", printQuote);
-$("#repoBtn").addEventListener("click", () => {
+function updateRepoLink() {
   const label = $("#freq .on").textContent.toLowerCase();
-  window.open(wsp(`Hola, quiero activar la reposición automática (${label}) de: papel higiénico y lo de siempre 🔁`), "_blank", "noopener");
-});
-$("#b2bBtn").addEventListener("click", () => window.open(wsp("Hola, quiero crear una cuenta empresa en En el Mapa 🏢"), "_blank", "noopener"));
+  $("#repoBtn").href = wsp(`Hola, quiero activar la reposición automática (${label}) de: papel higiénico y lo de siempre 🔁`);
+}
+$("#b2bBtn").href = wsp("Hola, quiero crear una cuenta empresa en En el Mapa 🏢");
 $("#comunaForm").addEventListener("submit", checkComuna);
 ["#topWsp", "#footWsp"].forEach((s) => $(s).setAttribute("href", wsp("Hola En el Mapa 📍")));
 $("#topWsp").target = $("#footWsp").target = "_blank";
@@ -357,3 +358,4 @@ $("#comunasList").innerHTML = ZONES.flatMap((z) => z.comunas).map((c) => `<optio
 $("#zones").innerHTML = ZONES.map((z) => `<li><span class="dot" style="background:${z.color}"></span><b>${z.name}</b><small>${z.comunas.length ? z.comunas.slice(0, 4).join(", ") + "…" : ""} ${z.detail}</small></li>`).join("");
 renderChips();
 renderMode();
+updateRepoLink();
